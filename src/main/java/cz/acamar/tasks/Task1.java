@@ -1,6 +1,10 @@
 package cz.acamar.tasks;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Task1 {
+
+    private static char SPACE = ' ';
 
     /**
      * Task 1. Length of the last word.
@@ -17,6 +21,12 @@ public class Task1 {
      * @return - the length of the last word in the string.
      */
     public int lengthOfLastWord(String str) {
-        return 0;
+        int length = 0;
+        if (StringUtils.isNotBlank(str)) {
+            str = str.trim();
+            int indexOfLastSpace = str.lastIndexOf(SPACE);
+            length = str.substring(indexOfLastSpace + 1).length();
+        }
+        return length;
     }
 }
